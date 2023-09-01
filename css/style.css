@@ -1,0 +1,124 @@
+:root {
+    --background-color: #DBDBD3;
+    --background-strip: #009688;
+    --chat-clicked-color: #E9EBEB;
+    --contact-search-color: #EAEAEA;
+    --chat-text-color: #E9ECEC;
+    --notification-color: #8EDAFC;
+    ----darkgray-: #9f9b9b;
+
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.app-container {
+    border: 1px solid pink;
+    background-color: white;
+}
+
+.my-contact {
+    background-color: var(--contact-search-color);
+}
+
+.personal-info {
+    width: 20%;
+
+    position: relative;
+}
+
+.personal-info>p {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.personal-info>img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.icon-info>i {
+    height: 50px;
+    line-height: 50px;
+
+    color: var(----darkgray-);
+}
+
+
+.notifications {
+    background-color: var(--notification-color);
+    font-size: 10px;
+}
+
+.notification-icon {
+    background-color: white;
+
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+
+    line-height: 25px;
+    text-align: center;
+
+}
+
+.notification-icon>i {
+    color: var(--notification-color);
+}
+
+.notification-text>p,
+.contact-info>p {
+    margin: 0;
+}
+
+.notification-text>span {
+    text-decoration: underline;
+    color: rgb(73, 73, 73);
+    font-size: xx-small;
+}
+
+.search-bar {
+    background-color: var(--contact-search-color);
+    font-size: xx-small;
+
+    color: var(----darkgray-);
+}
+
+.search-bar>span {
+    background-color: white;
+    border: 1px solid var(--background-color);
+}
+
+.search-bar>input {
+    border: 1px solid var(--background-color);
+    background-color: white;
+
+    width: 100%;
+}
+
+.contacts-container {
+    overflow-y: scroll;
+
+}
+
+.contact {
+    border-top: 1px solid var(----darkgray-);
+}
+
+.contact-image {
+    width: 30%;
+}
+
+.contact-image>img {
+    width: 100%;
+    object-fit: 1;
+    border-radius: 50%;
+}
+
+.contact-info>span {
+    font-size: x-small;
+    color: var(----darkgray-);
+}
