@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: var(--background-color);
+    background: linear-gradient(var(--background-strip) 15%, var(--background-color) 15% 100%);;
 }
 
 .app-container {
