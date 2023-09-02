@@ -48,7 +48,7 @@
                         <i class="fa-solid fa-magnifying-glass mx-1"></i>
                     </span>
                     <input type="text" placeholder="Cerca qui o inizia una nuova chat"/>
-                </div>
+                </div> 
                 <!-- Contacts-list -->
                 <div class="contacts-container">
                     <div 
@@ -60,16 +60,14 @@
                         </div>
                         <div class="contact-info">
                             <p>{{contact.name}}</p>
-                            <span
-
-                            >ultimo messaggio inviato</span>
-                            <time>12:00</time>
+                            <span> {{ contact.messages[contact.messages.length - 1].message }} </span>
+                            <time> {{ contact.messages[contact.messages.length - 1].date }} </time>
                         </div>
                     </div>
                 </div> <!---->
                     
                     
-            </aside> <!--col-5-->
+            </aside><!--col-5-->
                 
             <!-- MESSAGGI -->
             <main class="col-7">
