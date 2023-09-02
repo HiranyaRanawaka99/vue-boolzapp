@@ -11,13 +11,14 @@
 
 
 body {
-    background: linear-gradient(var(--background-strip) 15%, var(--background-color) 15% 100%);;
+    background: linear-gradient(var(--background-strip) 15%, var(--background-color) 15% 100%);
+    min-height: 100vh;
 }
 
 .app-container {
     background-color: white;
+    
 }
-
 
 /* My-contact */
 .my-contact {
@@ -113,10 +114,11 @@ body {
 
 .contact {
     border-top: 1px solid var(----darkgray-);
+    max-height: calc(100% / 8);
 }
 
 .contact-image {
-    width: 30%;
+    max-width: 20%;
 }
 
 .contact-image > img {
