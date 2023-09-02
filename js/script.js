@@ -169,9 +169,4 @@ createApp({
             contacts,
         }
     },
-    methods: {
-        getLastItem() {
-           
-        }
-    },
 }).mount('#app')
