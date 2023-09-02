@@ -19,20 +19,20 @@
     <div id="app">
         <div class="app-container m-5 d-flex">
             <!-- COLONNA CONTATTI -->
-            <div class="container-sx col-5">
-                <!-- Contatto personale -->
+            <aside class="aside col-5">
+                <!-- My-contact -->
                 <div class="my-contact d-flex justify-content-between p-1">
                     <div class="personal-info d-flex">
                         <img src="./img/avatar_io.jpg" alt="you">
                         <p class="">Sofia</p>
                     </div>
-                    <div class="icon-info d-flex gap-1">
+                    <div class="icon-info d-flex gap-3 pe-2">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <!-- ricevi notifiche -->
+                <!-- Notifications -->
                 <div class="notifications d-flex p-1">
                     <div class="notification-icon me-1">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -42,37 +42,37 @@
                         <span>Attiva notifiche dekstop</span>
                     </div>
                 </div>
-                <!-- Cerca contatti -->
+                <!-- Search-bar -->
                 <div class="search-bar d-flex p-1">
                     <span>
                         <i class="fa-solid fa-magnifying-glass mx-1"></i>
                     </span>
                     <input type="text" placeholder="Cerca qui o inizia una nuova chat"/>
                 </div>
-                <!-- Lista contatti -->
+                <!-- Contacts-list -->
                 <div class="contacts-container">
                     <div 
                     class="contact d-flex p-2"
                     v-for = "(contact, index) in contacts"
                     >
                         <div class="contact-image me-3">
-                            <img src="{{contact.avatar}}">
+                            <img src="contact.avatar">
                         </div>
                         <div class="contact-info">
                             <p>{{contact.name}}</p>
-                            <span 
-                            >{{contact.messages[0].message}}</span>
+                            <span>ultimo messaggio inviato</span>
+                            <time>12:00</time>
                         </div>
                     </div>
                 </div> <!---->
                     
                     
-            </div> <!--col-5-->
+            </aside> <!--col-5-->
                 
             <!-- MESSAGGI -->
-            <div class="col-7">
+            <main class="col-7">
 
-            </div> <!--col-7-->
+            </main> <!--col-7-->
 
 
 
