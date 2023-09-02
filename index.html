@@ -56,11 +56,13 @@
                     v-for = "(contact, index) in contacts"
                     >
                         <div class="contact-image me-3">
-                            <img src="contact.avatar">
+                            <img :src="contact.avatar">
                         </div>
                         <div class="contact-info">
                             <p>{{contact.name}}</p>
-                            <span>ultimo messaggio inviato</span>
+                            <span
+
+                            >ultimo messaggio inviato</span>
                             <time>12:00</time>
                         </div>
                     </div>
