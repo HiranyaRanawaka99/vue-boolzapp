@@ -17,16 +17,18 @@
 </head>
 <body>
     <div id="app">
-        <div class="app-container m-5 d-flex">
+        <div class="app-container d-flex">
             <!-- COLONNA CONTATTI -->
-            <aside class="aside col-5">
+            <aside class="aside d-flex flex-column">
                 <!-- My-contact -->
                 <div class="my-contact d-flex justify-content-between p-1">
-                    <div class="personal-info d-flex">
-                        <img src="./img/avatar_io.jpg" alt="you">
+                    <div class="personal-info d-flex ">
+                        <div class="personal-image p-1">
+                            <img src="./img/avatar_io.jpg" alt="you">
+                        </div>
                         <p class="">Sofia</p>
                     </div>
-                    <div class="icon-info d-flex gap-3 pe-2">
+                    <div class="icon-info d-flex gap-3">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -34,7 +36,7 @@
                 </div>
                 <!-- Notifications -->
                 <div class="notifications d-flex p-1">
-                    <div class="notification-icon me-1">
+                    <div class="notification-icon">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
                     <div class="notification-text">
@@ -45,15 +47,16 @@
                 <!-- Search-bar -->
                 <div class="search-bar d-flex p-1">
                     <span>
-                        <i class="fa-solid fa-magnifying-glass mx-1"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
                     <input type="text" placeholder="Cerca qui o inizia una nuova chat"/>
                 </div> 
                 <!-- Contacts-list -->
-                <div class="contacts-container">
+                <div class="contacts-container flex-grow-1 p-1">
                     <div 
-                    class="contact d-flex p-2"
+                    class="contact d-flex"
                     v-for = "(contact, index) in contacts"
+                    @click= "clickContact(index)"
                     >
                         <div class="contact-image me-3">
                             <img :src="contact.avatar">
@@ -64,15 +67,61 @@
                             <time> {{ contact.messages[contact.messages.length - 1].date }} </time>
                         </div>
                     </div>
-                </div> <!---->
-                    
-                    
-            </aside><!--col-5-->
+                </div>   
+            </aside>
                 
             <!-- MESSAGGI -->
-            <main class="col-7">
+            <main class="main">
+                <!-- Message-container -->
+                <div class="messages-container">
+                        <!--message-header-->
+                        <div class="message-header d-flex justify-content-between p-1">
+                            <div class="who d-flex align-items-center">
+                                <div 
+                                class="who-image p-1" >
+                                    <img :src="contacts[activeContact].avatar">
+                                </div>
+                                <div class="who-info">
+                                    <p>{{ contacts[activeContact].name }}</p>
+                                    <span>Ultimo accesso oggi alle 12:00</span>
+                                </div>
+                            </div>
+                            <div class="option-icon d-flex gap-1">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                        <!--message-body-->
+                        <div class="message-body">
+                            <div class="sms"
+                            v-for = "(sms, index) in contacts[activeContact].messages"
+                            :class = "(sms.status == 'sent') ? 'sent' : 'received'"
+                            v-on:click = "clickContact(index)" >
+                                <p>{{ sms.message }}</p>
+                                <time> 
+                                    <!-- {{ sms.date }} -->
+                                    12:00
+                                </time>
+                            </div>
+                            
+                        </div>
 
-            </main> <!--col-7-->
+                        <!--message-footer-->
+                        <div class="message-footer d-flex align-items-center justify-content-around px-2">
+                            <span class="emoji">
+                                <i class="fa-regular fa-face-smile-beam"></i>
+                            </span>
+                            <div class="message-bar input-group px-5">
+                                <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                            </div>
+                             <span class="microphone">
+                                <i class="fa-solid fa-microphone"></i>
+                            </span>
+                        </div>
+                </div> <!--messages-cotainer-->
+
+            </main>
 
 
 

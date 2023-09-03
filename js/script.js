@@ -167,6 +167,13 @@ createApp({
     data() {
         return {
             contacts,
+            activeContact: 0,
         }
+    },
+    methods: {
+        clickContact(index) {
+            this.activeContact = index;
+            console.log(index);
+        },
     },
 }).mount('#app')

@@ -5,29 +5,84 @@
     --contact-search-color: #EAEAEA;
     --chat-text-color: #E9ECEC;
     --notification-color: #8EDAFC;
-    ----darkgray-: #9f9b9b;
-
+    --darkgray-: #9f9b9b;
+    --message-footer: #F3EEEA ;
+    --message-sent: #D5F9BA;
+    --message-received: white;
 }
 
+/* UTILS
 
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+.gap-3 {
+    gap: 3rem;
+}
+
+.p-1 {
+    padding: 1rem;
+} */
+.none {
+    display:none;
+}
+.active {
+    display:inline-block;
+}
+
+/* GENERICS */
 body {
     background: linear-gradient(var(--background-strip) 15%, var(--background-color) 15% 100%);
-    min-height: 100vh;
 }
 
 .app-container {
     background-color: white;
+
+    max-width: 900px;
+    max-height: 800px;
+
+    margin: 5rem;
     
+}
+
+aside {
+    max-width: 300px;
+    max-height: 800px;
+
+}
+
+main {
+    max-width: 600px;
+    min-height:  800px;
 }
 
 /* My-contact */
 .my-contact {
     background-color: var(--contact-search-color);
+
+    height: 50px;
+    
+    border-right: 1px solid var(--darkgray-);
+    width: 300px;
 }
 
 .personal-info {
-    width: 10%;
-
     position: relative;
 }
 
@@ -38,7 +93,12 @@ body {
     transform: translateY(-50%);
 }
 
-.personal-info > img {
+.personal-image {
+    width: 45px;
+    height: 45px;
+}
+
+.personal-image > img {
     width: 100%;
     border-radius: 50%;
 }
@@ -46,8 +106,9 @@ body {
 .icon-info > i {
     height: 50px;
     line-height: 50px;
+    padding-right: 1rem;
 
-    color: var(----darkgray-);
+    color: var(--darkgray-);
 }
 
 /* Notifications */
@@ -63,10 +124,10 @@ body {
     border-radius: 50%;
     width: 25px;
     height: 25px;
+    margin-right: 1rem;
 
     line-height: 25px;
     text-align: center;
-
 }
 
 .notification-icon>i {
@@ -109,12 +170,10 @@ body {
 
 .contacts-container {
     overflow-y: scroll;
-
 }
 
 .contact {
-    border-top: 1px solid var(----darkgray-);
-    max-height: calc(100% / 8);
+    border-top: 1px solid var(--darkgray-);
 }
 
 .contact-image {
@@ -136,11 +195,117 @@ body {
 .contact-info > span,
 .contact-info > time {
     font-size: x-small;
-    color: var(----darkgray-);
+    color: var(--darkgray-);
 }
 
 .contact-info > time {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+/* MAIN - message container */
+
+.messages-container {
+    width: 600px;
+    max-height: 800px;
+}
+
+/* Message-header */
+
+.message-header {
+    background-color: var(--contact-search-color);
+
+    max-height: 50px;
+}
+
+.who-info > p {
+    margin-bottom: 0;
+}
+.who-info > span {    
+    font-size: 10px;
+    color: var(--darkgray-);
+}
+
+.who-image {
+    width: 40px;
+    max-height: 40px;
+}
+
+.who-image > img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.option-icon > i {
+    height: 50px;
+    line-height: 50px;
+    margin-right: 2rem;
+
+    font-size: 0.8rem;
+    color: var(--darkgray-);
+}
+
+/* Message-body */
+
+.message-body {
+    max-width: 100%;
+    min-height: 700px;
+    padding: 0.5rem;
+
+    background-size: auto;
+    background-image: url("../img/mine.jpg");
+    overflow-y: scroll;
+}
+
+.sms {
+    margin: 0.5rem;
+    padding: .04rem 1rem;
+    border-radius: 0.5rem;
+    width: 300px;
+    max-width: 70%;
+
+    position: relative;
+
+}
+
+.sms.sent {
+    background-color: var(--message-sent);
+    margin-left: auto;
+}
+
+.sms.received {
+    background-color: var(--message-received);
+    margin-left: 0;
+}
+
+.sms > time {
+    font-size: 10px;
+    color: var(--darkgray-);
+
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+
+}
+
+
+
+/* message-footer  */
+.message-footer {
+    max-width: 600px;
+    min-height: 50px;
+    
+    background-color: var(--message-footer) ;
+}
+
+.emoji > i,
+.microphone > i {
+    color: var(----darkgray-)
+}
+
+.message-bar {
+
+    border: 1px solid var(--chat-text-color);
+    border-radius: 15px;
 }
