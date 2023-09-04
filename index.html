@@ -108,10 +108,14 @@
                         <span class="emoji">
                             <i class="fa-regular fa-face-smile-beam"></i>
                         </span>
-                        <div class="message-bar input-group px-5">
-                            <input type="text" class="form-control" placeholder="Scrivi un messaggio">
-                            <button class="enterButton" @click="enterNewMessage()">Invia
-                            </button>
+                        <div class="message-bar input-group px-5
+                        ">
+                            <input type="text" class="form-control" placeholder="Scrivi un messaggio"
+                            v-model="sendNewMessages.message"
+                            v-model="autoReplyMessage.message"
+                            @keyup.enter="enterNewMessage()">
+                            <!-- <button class="enterButton" @click="enterNewMessage()">Invia
+                            </button> -->
                         </div>
                         <span class="microphone">
                             <i class="fa-solid fa-microphone"></i>

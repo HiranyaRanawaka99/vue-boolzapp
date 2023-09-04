@@ -168,14 +168,17 @@ createApp({
         return {
             contacts,
             activeContact: 0,
-            sms: 0,
             sendNewMessages: 
                 {
                     message: '',
                     status: 'sent',
                 },
-            
-        }
+            autoReplyMessage: 
+                {
+                    message: 'ok',
+                    status: 'received',
+                },  
+            }
     },
     methods: {
         clickContact(index) {
@@ -185,7 +188,15 @@ createApp({
         enterNewMessage () {
             const copysendNewMessages = {...this.sendNewMessages};
             this.contacts[this.activeContact].messages.push(copysendNewMessages);
+            this.sendNewMessages.message = '';
+            
+            this.autoReply();
         },
-
+        autoReply() {
+            setTimeout( function () {
+                const copyAutoReply = {...this.autoReplyMessage};
+                this.contacts[this.activeContact].messages.push(copyAutoReply); 
+            }, 1000)
+        }
     },
 }).mount('#app')
