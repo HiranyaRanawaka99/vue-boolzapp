@@ -168,6 +168,13 @@ createApp({
         return {
             contacts,
             activeContact: 0,
+            sms: 0,
+            sendNewMessages: 
+                {
+                    message: '',
+                    status: 'sent',
+                },
+            
         }
     },
     methods: {
@@ -175,5 +182,10 @@ createApp({
             this.activeContact = index;
             console.log(index);
         },
+        enterNewMessage () {
+            const copysendNewMessages = {...this.sendNewMessages};
+            this.contacts[this.activeContact].messages.push(copysendNewMessages);
+        },
+
     },
 }).mount('#app')
