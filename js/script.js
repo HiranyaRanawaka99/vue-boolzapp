@@ -190,13 +190,17 @@ createApp({
             this.contacts[this.activeContact].messages.push(copysendNewMessages);
             this.sendNewMessages.message = '';
             
-            this.autoReply();
+            setTimeout(this.autoReply, 1000)
         },
         autoReply() {
-            setTimeout( function () {
-                const copyAutoReply = {...this.autoReplyMessage};
-                this.contacts[this.activeContact].messages.push(copyAutoReply); 
-            }, 1000)
-        }
+            const copyAutoReply = {...this.autoReplyMessage};
+            console.log(copyAutoReply)
+            this.contacts[this.activeContact].messages.push(copyAutoReply);  
+        },
+        // filteredContact () {
+        //     this.contacts((contact, index) => {
+        //       if(this.contacts[this.])  
+        //     })
+     
     },
 }).mount('#app')
