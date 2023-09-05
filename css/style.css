@@ -11,41 +11,6 @@
     --message-received: white;
 }
 
-/* UTILS
-
-.d-flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.justify-content-between {
-    justify-content: space-between;
-}
-
-.align-items-center {
-    align-items: center;
-}
-
-.flex-grow-1 {
-    flex-grow: 1;
-}
-.gap-3 {
-    gap: 3rem;
-}
-
-.p-1 {
-    padding: 1rem;
-} */
-.none {
-    display:none;
-}
-.active {
-    display:inline-block;
-}
-
 /* GENERICS */
 body {
     background: linear-gradient(var(--background-strip) 15%, var(--background-color) 15% 100%);
@@ -57,19 +22,31 @@ body {
     max-width: 900px;
     max-height: 800px;
 
-    margin: 5rem;
-    
+    margin: 5rem; 
 }
 
 aside {
     max-width: 300px;
     max-height: 800px;
-
 }
 
 main {
     max-width: 600px;
     min-height:  800px;
+}
+
+/* icons */
+
+i {
+    color: var(--darkgray-)
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+i:active{
+    color: white;
 }
 
 /* My-contact */
@@ -107,12 +84,10 @@ main {
     height: 50px;
     line-height: 50px;
     padding-right: 1rem;
-
-    color: var(--darkgray-);
 }
 
-/* Notifications */
 
+/* Notifications */
 .notifications {
     background-color: var(--notification-color);
     font-size: 10px;
@@ -139,8 +114,7 @@ main {
     margin: 0;
 }
 
-.notification-text>span {
-    text-decoration: underline;
+.notification-text > a {
     color: rgb(73, 73, 73);
     font-size: xx-small;
 }
@@ -174,6 +148,13 @@ main {
 
 .contact {
     border-top: 1px solid var(--darkgray-);
+}
+
+.contact:hover {
+    cursor: pointer;
+}
+.contact:active {
+    background-color: var(--chat-clicked-color);
 }
 
 .contact-image {
@@ -241,9 +222,6 @@ main {
     height: 50px;
     line-height: 50px;
     margin-right: 2rem;
-
-    font-size: 0.8rem;
-    color: var(--darkgray-);
 }
 
 /* Message-body */
@@ -352,14 +330,8 @@ main {
     background-color: var(--message-footer) ;
 }
 
-.emoji > i,
-.microphone > i {
-    color: var(----darkgray-)
-}
-
 .message-bar {
 
     border: 1px solid var(--chat-text-color);
     border-radius: 15px;
 }
-

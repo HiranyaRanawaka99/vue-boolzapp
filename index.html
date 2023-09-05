@@ -47,7 +47,7 @@
                     </div>
                     <div class="notification-text">
                         <p>Ricevi notifiche di nuovi messaggi</p>
-                        <span>Attiva notifiche dekstop</span>
+                        <a href="#">Attiva notifiche dekstop</a>
                     </div>
                 </div>
                 <!-- Search-bar -->
@@ -55,16 +55,13 @@
                     <span>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input
-                    type="text" 
-                    placeholder="Cerca qui o inizia una nuova chat"
-                    v-model="filteredName"
-                    @keyup.enter="searchContact()"
-                    />
+                    <input type="text" placeholder="Cerca qui o inizia una nuova chat" v-model="filteredName"
+                        @keyup.enter="searchContact()" />
                 </div>
                 <!-- Contacts-list -->
                 <div class="contacts-container flex-grow-1 p-1">
-                    <div class="contact d-flex" v-for="(contact, index) in searchContact()" @click="clickContact(index)">
+                    <div class="contact d-flex" v-for="(contact, index) in searchContact()"
+                        @click="clickContact(index)">
                         <div class="contact-image me-3">
                             <img :src="contact.avatar">
                         </div>
@@ -93,29 +90,27 @@
                             </div>
                         </div>
                         <div class="option-icon d-flex gap-1">
-                            <i class="fa-solid fa-magnifying-glass 2X"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
                     <!--message-body-->
                     <div class="message-body">
-                        <div
-                        class="sms d-flex justify-content-between" 
-                        v-for="(sms, index) in contacts[activeContact].messages"
-                        :class="(sms.status == 'sent') ? 'sent' : 'received'" 
-                        v-on:click="clickContact(index)">
+                        <div class="sms d-flex justify-content-between"
+                            v-for="(sms, index) in contacts[activeContact].messages"
+                            :class="(sms.status == 'sent') ? 'sent' : 'received'">
                             <p>{{ sms.message }}</p>
                             <div class="dropdown-time d-flex flex-column justify-content-between">
                                 <!-- Dropdown and time -->
                                 <div class="dropdown align-self-end">
-                                    <button class="dropbtn"> 
+                                    <button class="dropbtn">
                                         <i class="fa-solid fa-caret-down"></i>
                                     </button>
                                     <ul class="dropdown-content">
-                                        <li
-                                        @click = "deleteMessage(index)">
-                                        <a>Delete message</a></li>
+                                        <li @click="deleteMessage(index)">
+                                            <a>Delete message</a>
+                                        </li>
                                         <li><a>Message info</a></li>
                                     </ul>
                                 </div>
@@ -133,9 +128,8 @@
                         <div class="message-bar input-group px-5
                         ">
                             <input type="text" class="form-control" placeholder="Scrivi un messaggio"
-                            v-model="sendNewMessages.message"
-                            v-model="autoReplyMessage.message"
-                            @keyup.enter="enterNewMessage()">
+                                v-model="sendNewMessages.message" v-model="autoReplyMessage.message"
+                                @keyup.enter="enterNewMessage()">
                             <!-- <button class="enterButton" @click="enterNewMessage()">Invia
                             </button> -->
                         </div>
@@ -144,26 +138,7 @@
                         </span>
                     </div>
                 </div> <!--messages-cotainer-->
-
             </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div> <!--container-->
     </div> <!--app-->
 </body>
