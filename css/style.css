@@ -336,6 +336,13 @@ main {
     display: block;
 }
 
+.dropdown > ul {
+    list-style-type: none;
+
+    margin: 0;
+    padding: 0;
+}
+
 
 /* message-footer  */
 .message-footer {

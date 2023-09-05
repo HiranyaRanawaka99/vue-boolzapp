@@ -10,6 +10,7 @@ createApp({
         return {
             contacts,
             activeContact: 0,
+            activeMesssage: 0,
             sendNewMessages: 
                 {
                     message: '',
@@ -43,11 +44,16 @@ createApp({
                 return contact.name.toLowerCase().includes(this.filteredName.toLowerCase());
             })
         },
+        deleteMessage(index) {
+            this.contacts[activeContact].messages.splice(index, 1);
+        },
+
+
+
         timeToText(timeString) {
             // console.log(DateTime.fromISO(timeString));
 
             const messageTime = DateTime.fromISO(timeString);
-
         }
         
     }, 
@@ -56,7 +62,6 @@ createApp({
         singleActiveContact () { 
             return this.contacts[this.activeContact];
         },
-
 },
 
 
@@ -67,8 +72,4 @@ mounted() {
 
 }).mount('#app')
 
-
-        // deleteMessage(index) {
-        //     this.contacts[this.activeContact].messages.splice(index, 1);
-        // } 
-    // },
+    
