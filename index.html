@@ -13,9 +13,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- JS -->
+    <script type="text/javascript" defer src="./js/contacts.js"></script>
     <script type="text/javascript" defer src="./js/script.js"></script>
     <!-- VUE JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- LUXON -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.2/luxon.min.js"></script>
 </head>
 
 <body>
@@ -52,11 +55,16 @@
                     <span>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input type="text" placeholder="Cerca qui o inizia una nuova chat" />
+                    <input
+                    type="text" 
+                    placeholder="Cerca qui o inizia una nuova chat"
+                    v-model="filteredName"
+                    @keyup.enter="searchContact()"
+                    />
                 </div>
                 <!-- Contacts-list -->
                 <div class="contacts-container flex-grow-1 p-1">
-                    <div class="contact d-flex" v-for="(contact, index) in contacts" @click="clickContact(index)">
+                    <div class="contact d-flex" v-for="(contact, index) in searchContact()" @click="clickContact(index)">
                         <div class="contact-image me-3">
                             <img :src="contact.avatar">
                         </div>
@@ -92,17 +100,31 @@
                     </div>
                     <!--message-body-->
                     <div class="message-body">
-                        <div class="sms" v-for="(sms, index) in contacts[activeContact].messages"
-                            :class="(sms.status == 'sent') ? 'sent' : 'received'" v-on:click="clickContact(index)">
+                        <div
+                        class="sms d-flex justify-content-between" 
+                        v-for="(sms, index) in contacts[activeContact].messages"
+                        :class="(sms.status == 'sent') ? 'sent' : 'received'" 
+                        v-on:click="clickContact(index)">
                             <p>{{ sms.message }}</p>
-                            <time>
-                                <!-- {{ sms.date }} -->
-                                12:00
-                            </time>
+                            <div class="dropdown-time d-flex flex-column justify-content-between">
+                                <!-- Dropdown and time -->
+                                <div class="dropdown align-self-end">
+                                    <button class="dropbtn"> 
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                    <ul class="dropdown-content">
+                                        <li
+                                        @click = "deleteMessage(index)">
+                                        <a>Delete message</a></li>
+                                        <li>Message info</li>
+                                    </ul>
+                                </div>
+                                <time>
+                                    {{ timeToText(sms.date) }}
+                                </time>
+                            </div>
                         </div>
-
                     </div>
-
                     <!--message-footer-->
                     <div class="message-footer d-flex align-items-center justify-content-around px-2">
                         <span class="emoji">
